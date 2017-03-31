@@ -12,6 +12,7 @@ public class PodiumScript : MonoBehaviour {
     public GameObject onScreen;
     public Camera offCam;
 
+    public Material skinMaterial;
     public Material metalMat;
     public Material furMat;
 
@@ -27,14 +28,13 @@ public class PodiumScript : MonoBehaviour {
     private GameObject shownItem;
     private float scale = 1;
     private Color itemColour = new Color(1, 0.87450980392f, 0.76862745098f, 1);
-    private Material skinMaterial;
     private Material chosenMat;
 
 	// Use this for initialization
 	void Start () {
         spinVector = new Vector3(0, rotationSpeed, 0);
         shownItem = newItem(Instantiate(items[0]) as GameObject);
-        skinMaterial = shownItem.GetComponent<Renderer>().material;
+        shownItem.GetComponent<Renderer>().material = skinMaterial;
         text.text = shownItem.GetComponent<ItemScript>().itemName;
         cost.text = (shownItem.GetComponent<ItemScript>().cost * scale).ToString();
         chosenMat = skinMaterial;

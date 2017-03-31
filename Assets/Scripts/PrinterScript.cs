@@ -124,7 +124,7 @@ public class PrinterScript : MonoBehaviour {
     private void StartPrinting(GameObject obj)
     {
         StartPrintAnim();
-        printingObj = obj;
+        printingObj = obj;      
         printingObj.GetComponent<ItemScript>().locked = true;
         printingObj.GetComponent<Interactable>().enabled = false;
         printing = true;

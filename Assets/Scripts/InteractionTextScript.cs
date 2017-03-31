@@ -12,9 +12,10 @@ public class InteractionTextScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        GetComponent<Text>().text = "";
         if (player.GetInteractableObj() != null && GameObject.FindWithTag("Player").GetComponent<FirstPersonController>() != null)
-            GetComponent<Text>().text = "Press 'E': " + player.GetInteractableObj().message;
-        else
-            GetComponent<Text>().text = "";
+            if(player.GetInteractableObj().enabled)
+                GetComponent<Text>().text = "Press 'E': " + player.GetInteractableObj().message;
+            
     }
 }
